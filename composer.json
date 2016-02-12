@@ -1,0 +1,22 @@
+{
+    "name": "rohan0793/jsend",
+    "description": "To define a JSend response macro for Laravel 5 applications",
+    "keywords": [
+    	"laravel",
+    	"jsend",
+    	"response"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Rohan Chhabra",
+            "email": "rohan0793@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "RC\\JSend\\": "src/"
+        }
+    }
+}
