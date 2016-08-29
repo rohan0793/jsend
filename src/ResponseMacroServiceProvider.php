@@ -21,7 +21,6 @@ class ResponseMacroServiceProvider extends ServiceProvider
             $message,
             $code
         ) {
-
             if ($data != null && $presenter != null) {
                 $data = $presenter->present($data);
             }
