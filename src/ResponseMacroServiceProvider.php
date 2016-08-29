@@ -6,6 +6,7 @@ use Illuminate\Support\ServiceProvider;
 
 class ResponseMacroServiceProvider extends ServiceProvider
 {
+
     /**
      * Bootstrap the application services.
      *
@@ -14,21 +15,21 @@ class ResponseMacroServiceProvider extends ServiceProvider
     public function boot()
     {
         response()->macro('jsend', function (
-                            $data = null,
-                            $presenter = null,
-                            $status,
-                            $message = null,
-                            $code
-                        ) {
+            $data,
+            $presenter,
+            $status,
+            $message,
+            $code
+        ) {
 
-            if($data != null && $presenter != null){
+            if ($data != null && $presenter != null) {
                 $data = $presenter->present($data);
             }
 
             $body = [
-                'data'      => $data,
-                'status'    => $status,
-                'message'   => $message
+                'data'    => $data,
+                'status'  => $status,
+                'message' => $message,
             ];
 
             return response()->json($body, $code);
