@@ -3,10 +3,10 @@
 namespace RC\JSend;
 
 use Illuminate\Support\ServiceProvider;
+use Uppdragshuset\AO\Repository\Contracts\Presenter;
 
 class ResponseMacroServiceProvider extends ServiceProvider
 {
-
     /**
      * Bootstrap the application services.
      *
@@ -14,24 +14,48 @@ class ResponseMacroServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        response()->macro('jsend', function (
-            $data,
-            $presenter,
-            $status,
-            $message,
-            $code
-        ) {
-            if ($data != null && $presenter != null) {
-                $data = $presenter->present($data);
-            }
+        $self = $this;
 
-            $body = [
-                'data'    => $data,
-                'status'  => $status,
-                'message' => $message,
-            ];
+        response()->macro('jsend', [$this, 'jsend']);
 
-            return response()->json($body, $code);
+        response()->macro('resource_fetched', function (
+            $data = null,
+            $presenter = null,
+            $message = 'Resource Fetched Successfully',
+            $status = 'success',
+            $code = 200
+        ) use ($self) {
+            return $self->jsend($data, $presenter, $status, $message, $code);
+        });
+
+        response()->macro('resource_updated', function (
+            $data = null,
+            $presenter = null,
+            $message = 'Resource Updated Successfully',
+            $status = 'success',
+            $code = 200
+        ) use ($self) {
+            return $self->jsend($data, $presenter, $status, $message, $code);
+        });
+
+        response()->macro('resource_created', function (
+            $data = null,
+            $presenter = null,
+            $message = 'Resource Created Successfully',
+            $status = 'success',
+            $code = 201
+        ) use ($self) {
+            return $self->jsend($data, $presenter, $status, $message, $code);
+        });
+
+        response()->macro('resource_deleted', function (
+            $data = null,
+            $presenter = null,
+            $message = null,
+            $status = null,
+            $code = 204
+        ) use ($self) {
+            return $self->jsend($data, $presenter, $status, $message, $code);
         });
     }
 
@@ -43,5 +67,30 @@ class ResponseMacroServiceProvider extends ServiceProvider
     public function register()
     {
         //
+    }
+
+    /**
+     * Send jsend response
+     *
+     * @param mixed $data
+     * @param Presenter | null $presenter
+     * @param string | null $status
+     * @param string | null $message
+     * @param int $code
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function jsend($data = null, $presenter = null, $status = null, $message = null, $code)
+    {
+        if ($data != null && $presenter != null) {
+            $data = $presenter->present($data);
+        }
+
+        $body = [
+            'data' => $data,
+            'status' => $status,
+            'message' => $message
+        ];
+
+        return response()->json($body, $code);
     }
 }
