@@ -57,6 +57,16 @@ class ResponseMacroServiceProvider extends ServiceProvider
         ) use ($self) {
             return $self->jsend($data, $presenter, $status, $message, $code);
         });
+
+        response()->macro('jsend_error', function (
+            \Exception $e,
+            $message = null,
+            $code = null
+        ) use ($self) {
+            $message = $message ? $message : $e->getMessage();
+            $code = $code ? $code : $e->getCode();
+            return $self->jsend($e->getTrace(), null, 'error', $message, $code);
+        });
     }
 
     /**
