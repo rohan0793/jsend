@@ -65,6 +65,7 @@ class ResponseMacroServiceProvider extends ServiceProvider
         ) use ($self) {
             $message = $message ? $message : $e->getMessage();
             $code = $code ? $code : $e->getCode();
+            $code = $code ? $code : 400;
             return $self->jsend($e->getTrace(), null, 'error', $message, $code);
         });
     }
