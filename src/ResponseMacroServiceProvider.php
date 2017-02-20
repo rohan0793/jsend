@@ -97,9 +97,9 @@ class ResponseMacroServiceProvider extends ServiceProvider
         }
 
         $body = [
-            'data' => $data,
             'status' => $status,
-            'message' => $message
+            'message' => $message,
+            'data' => $data
         ];
 
         return response()->json($body, $code);
