@@ -1,16 +1,16 @@
 <?php
 
-namespace Rohan0793\Jsend\Tests;
+namespace RC\Jsend\Tests;
 
 use Orchestra\Testbench\TestCase;
-use Rohan0793\Jsend\JsendServiceProvider;
+use RC\Jsend\ResponseMacroServiceProvider;
 
 class ExampleTest extends TestCase
 {
 
     protected function getPackageProviders($app)
     {
-        return [JsendServiceProvider::class];
+        return [ResponseMacroServiceProvider::class];
     }
     
     /** @test */
