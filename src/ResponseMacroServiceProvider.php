@@ -3,7 +3,6 @@
 namespace RC\JSend;
 
 use Illuminate\Support\ServiceProvider;
-use Uppdragshuset\AO\Repository\Contracts\Presenter;
 
 class ResponseMacroServiceProvider extends ServiceProvider
 {
@@ -84,7 +83,7 @@ class ResponseMacroServiceProvider extends ServiceProvider
      * Send jsend response
      *
      * @param mixed $data
-     * @param Presenter | null $presenter
+     * @param mixed $presenter
      * @param string | null $status
      * @param string | null $message
      * @param int $code

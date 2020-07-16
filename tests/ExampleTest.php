@@ -2,7 +2,7 @@
 
 namespace RC\Jsend\Tests;
 
-use Orchestra\Testbench\TestCase;
+use PHPUnit\Framework\TestCase;
 
 class ExampleTest extends TestCase
 {
