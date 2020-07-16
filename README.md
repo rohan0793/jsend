@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/rohan0793/jsend.svg?branch=master)](https://travis-ci.org/rohan0793/jsend)
+
 # jsend
 
 This is a simple composer package to issue JSend responses from a Laravel 5 application.
