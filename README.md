@@ -1,8 +1,4 @@
-[![Build Status](https://travis-ci.org/rohan0793/jsend.svg?branch=master)](https://travis-ci.org/rohan0793/jsend)
-
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/rohan0793/jsend/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/rohan0793/jsend/?branch=master)
-
-[![Build Status](https://scrutinizer-ci.com/g/rohan0793/jsend/badges/build.png?b=master)](https://scrutinizer-ci.com/g/rohan0793/jsend/build-status/master)
+[![Build Status](https://travis-ci.org/rohan0793/jsend.svg?branch=master)](https://travis-ci.org/rohan0793/jsend) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/rohan0793/jsend/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/rohan0793/jsend/?branch=master) [![Build Status](https://scrutinizer-ci.com/g/rohan0793/jsend/badges/build.png?b=master)](https://scrutinizer-ci.com/g/rohan0793/jsend/build-status/master)
 
 # jsend
 
