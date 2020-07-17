@@ -6,24 +6,24 @@ cache:
     - $HOME/.composer/cache/files
 
 php:
-    - 7.1
+    - 7.2
     - 7.3
 
 env:
 
-    - ILLUMINATE_VERSION=5.6.* PHPUNIT_VERSION=~7.0
-    - ILLUMINATE_VERSION=5.7.* PHPUNIT_VERSION=~7.0
+    - ILLUMINATE_VERSION=5.6.* PHPUNIT_VERSION=~7.2
+    - ILLUMINATE_VERSION=5.7.* PHPUNIT_VERSION=~7.2
     - ILLUMINATE_VERSION=5.8.* PHPUNIT_VERSION=^7.5 COVERAGE=true
 
 matrix:
-    # For each PHP version we exclude the coverage env, except for PHP 7.1
+    # For each PHP version we exclude the coverage env, except for PHP 7.2
     exclude:
-        # Test only Laravel 5.4 and up on PHP 7.1
-        - php: 7.1
+        # Test only Laravel 5.4 and up on PHP 7.2
+        - php: 7.2
           env: ILLUMINATE_VERSION=5.1.* PHPUNIT_VERSION=~4.0
-        - php: 7.1
+        - php: 7.2
           env: ILLUMINATE_VERSION=5.2.* PHPUNIT_VERSION=~4.0
-        - php: 7.1
+        - php: 7.2
           env: ILLUMINATE_VERSION=5.3.* PHPUNIT_VERSION=~5.0
 
 before_install:
